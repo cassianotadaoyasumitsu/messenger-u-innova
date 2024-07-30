@@ -10,4 +10,11 @@ class PagesController < ApplicationController
     TwilioClient.new.send_message(to: phone_number, body: message)
     redirect_to root_path, notice: "Message sent!"
   end
+
+  def whatsapp
+    phone_number = current_user.phone
+    message = current_user.email
+    TwilioClient.new.send_whatsapp(to: phone_number, body: message)
+    redirect_to root_path, notice: "Message sent!"
+  end
 end

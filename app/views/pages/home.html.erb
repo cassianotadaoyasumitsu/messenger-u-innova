@@ -6,4 +6,5 @@
   <p><%= current_user.email %></p>
 
   <%= button_to "SMS", sms_path, method: :post, data: { confirm: 'Tem certeza que deseja enviar a mensagem?' }%>
+  <%= button_to "Zap", whatsapp_path, method: :post, data: { confirm: 'Tem certeza que deseja enviar a mensagem?' }%>
 <% end %>
