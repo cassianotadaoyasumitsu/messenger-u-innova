@@ -5,4 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :phone, presence: true, uniqueness: true
+
+  before_save :format_phone_number
+
+  private
+
+  def format_phone_number
+    self.phone = ApplicationHelper.validate_phone(phone)
+  end
 end
